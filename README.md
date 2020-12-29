@@ -54,3 +54,48 @@ Marks a constructor, field, setter method, or config method as to be autowired b
 Pour utiliser Bootstrap on inclus simplement dans chaque fichier html les lignes suivantes
 ```<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>  ```
 ```<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>```
+
+
+
+
+## Using the meteo api
+
+# Call
+
+
+```curl "https://api-adresse.data.gouv.fr/search/?q=8+bd+du+port&limit=15"``` 
+
+# Response
+
+``` Les attributs retournés sont :
+
+    id : identifiant de l’adresse (clef d’interopérabilité)
+    type : type de résultat trouvé
+        housenumber : numéro « à la plaque »
+        street : position « à la voie », placé approximativement au centre de celle-ci
+        locality : lieu-dit
+        municipality : numéro « à la commune »
+    score : valeur de 0 à 1 indiquant la pertinence du résultat
+    housenumber : numéro avec indice de répétition éventuel (bis, ter, A, B)
+    name : numéro éventuel et nom de voie ou lieu dit
+    postcode : code postal
+    citycode : code INSEE de la commune
+    city : nom de la commune
+    district : nom de l’arrondissement (Paris/Lyon/Marseille)
+    oldcitycode : code INSEE de la commune ancienne (le cas échéant)
+    oldcity : nom de la commune ancienne (le cas échéant)
+    context : n° de département, nom de département et de région
+    label : libellé complet de l’adresse
+    x : coordonnées géographique en projection légale
+    y : coordonnées géographique en projection légale
+    importance : indicateur d’importance (champ technique)
+
+```
+
+## Part 2
+
+Il faut une clef d'API afin de l'utiliser
+L'url a appeler es la suivante :  [http://api.openweathermap.org/data/2.5/weather]
+Elle fonctionne en GET, ses paramètres sont a passer dans l'url ( url + ? param1=val&param2..)
+La temperature es dans meteo.temp (on peut avoir aussi une indication avec Meteo.feels_like)
+Les previsions se trouve dans Meteo.description
